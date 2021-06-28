@@ -1,3 +1,8 @@
+var tempVal = $('#temp');
+var windVal = $('#wind');
+var humidVal = $('#humidity');
+var uvVal = $('#uv-index');
+
 // Weather API
 var weatherKey = "9ae9bb9e134c118baf51a3e5e47e8a55";
 var city = "houston";
