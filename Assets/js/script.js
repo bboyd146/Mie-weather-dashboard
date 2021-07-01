@@ -33,22 +33,23 @@ event.preventDefault();
             console.log(data);
             // variable to make header for current weather
             var currentDay = $('#repo-search-term');
-            console.log(currentDay);
             currentDay.text(citySer);
             tempVal.text("Temp:" + data.current.temp + "˚F");
             windVal.text("Wind:" + data.current.wind_speed + "MPH");
-            humidVal.text("Humidity:" + data.current.humidity);
+            humidVal.text("Humidity:" + data.current.humidity + "%");
             uvVal.text("UV Index:" + data.current.uvi);
 
-            var fiveDay = $('#forecast');
+            var fiveDay = $('#day-forecast')
+            var fiveDayEl = $('<li>');
+            fiveDayEl.addClass('list-group');
             dailyFor.children().text('5 Day Forecast:');
-            for (let i = 1; i < 6; i++) {
-            fiveDay.text(data.daily[i].temp);
-            fiveDay.text(data.daily[i].wind_speed);
-            fiveDay.text(data.daily[i].humidity);
-            fiveDay.text(data.daily[i].uvi);
+            for (var i = 1; i < 6; i++) {
+            fiveDayEl.text("Temp:" + data.daily[i].temp + "˚F");
+            fiveDayEl.text("Wind:" + data.daily[i].wind_speed + "MPH");
+            fiveDayEl.text("Humidity:" + data.daily[i].humidity+ "%");
+            console.log(data.daily[i].temp);
+            fiveDay.append(fiveDayEl);
             }
-
         })
 
             
